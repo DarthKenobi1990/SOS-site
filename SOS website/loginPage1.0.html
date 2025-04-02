@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>SpaceOutSmokeLogin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="logoMain">
+        <img src="sosLogo.png">
+    </div>
+
+    <div id="loginMain">
+
+        <div class="tabs">
+            <div onclick="showTab('login')" class="active">Login</div>
+            <div onclick="showTab('register')">Register</div>
+        </div>
+        
+        <div id="login" class="tab-content active">
+            <h3>Login</h3>
+            <input type="tel" placeholder="Phone Number" required pattern="[0-9]{10}" title="Enter 10-digit phone number">
+            <input type="password" placeholder="Password" required>
+            <button onclick="window.location.href='homePage1.0.html'">Login</button>
+        </div>
+        
+        <div id="register" class="tab-content">
+            <h3>Register</h3>
+            <input type="tel" placeholder="Phone Number" required pattern="[0-9]{10}" title="Enter 10-digit phone number">
+            <input type="password" placeholder="Password" required>
+            <button onclick="window.location.href='homePage1.0.html'">Register</button>
+        </div>
+
+        <div id="disclaimer">
+            <p><strong>MUST BE 21 TO ENTER THIS SITE!</strong></p>
+            <p><strong>NOBODY UNDER THE AGE OF 21 WILL BE ALLOWED TO CREATE OR KEEP AN ACCOUNT.</strong></p>
+        </div>
+
+    </div>
+
+    <script>
+        function showTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tabs div').forEach(el => el.classList.remove('active'));
+            document.getElementById(tab).classList.add('active');
+            document.querySelector(`[onclick="showTab('${tab}')"]`).classList.add('active');
+        }
+    </script>
+</body>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Amatic SC", sans-serif;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vmin;
+        background: linear-gradient(135deg,#667eea, white, #613291);
+    }
+    img {
+        width: 20vmax;
+        height: auto;
+    }
+    .container {
+        background: white;
+        padding: 2vmin;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 30vmin;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .tabs {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2.5vmin;
+        cursor: pointer;
+        border-bottom: 2px solid #e0e0e0;
+        font-size: 4.5vmin;
+    }
+    .tabs div {
+        flex: 1;
+        padding: 1vmin;
+        font-weight: bold;
+        transition: 0.3s;
+        text-align: center;
+    }
+    .tabs div:hover, .tabs div.active {
+        color: #613291;
+        border-bottom: 2px solid #667eea;
+    }
+    .tab-content {
+        display: none;
+        min-height: 140px;
+    }
+    .active {
+        display: block;
+    }
+    h3 {
+        font-size: 3vmin;
+    }
+    input {
+        width: 100%;
+        padding: 6px;
+        margin: 6px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 2.5vmin;
+        outline: none;
+    }
+    button {
+        width: 100%;
+        padding: 6px;
+        background: #667eea;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+        transition: 0.3s;
+    }
+    button:hover {
+        background: #613291;
+    }
+</style>
